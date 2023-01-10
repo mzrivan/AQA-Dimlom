@@ -1,0 +1,30 @@
+установка
+sudo apt install mysql-client-core-8.0 
+mysql -V
+sudo apt-get install mysql-server
+
+создать БД
+sudo mysqladmin -u root -p create app
+
+подключиться к БД
+sudo mysql -u root -h localhost app -p
+
+создать пользователя
+CREATE USER 'app'@'localhost' IDENTIFIED BY 'pass';
+
+добавить права
+GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,ALTER,INDEX 
+ON app.* TO 'app'@'localhost';
+
+проверить права
+SHOW GRANTS FOR 'app'@'localhost';
+
+запустить SUT
+sudo java -jar artifacts/aqa-shop.jar
+
+заглушки банковских сервисов
+устанавливаем node
+sudo apt install npm
+
+запускаем сервис
+artifacts/gate-simulator npm start
