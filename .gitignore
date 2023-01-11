@@ -42,5 +42,3 @@ bin/
 
 ### Mac OS ###
 .DS_Store
-/artifacts/gate-simulator/Dockerfile
-/docker-compose.yml
