@@ -35,18 +35,18 @@ public class PaymentPage {
     private SelenideElement cvvFieldError = cvvField.parent().sibling(0);
 
     private SelenideElement nameField = $$(".input__control").get(3);
+    private SelenideElement spinner = $(".spin").parent();
 
     private SelenideElement notificationOk = $(".notification_status_ok");
 
-    private SelenideElement closeNotificationOk  = notificationOk.$("button.notification__closer");
+    private SelenideElement closeNotificationOk = notificationOk.$("button.notification__closer");
 
     private SelenideElement notificationError = $(".notification_status_error");
 
     private SelenideElement closeNotificationError = notificationError.$("button.notification__closer");
     private long durationNotificationS = 15; //Время ожидания появления уведомления об успешной/неуспешной оплате
 
-    public enum Field
-    {
+    public enum Field {
         NUMBER,
         MONTH,
         YEAR,
@@ -69,7 +69,7 @@ public class PaymentPage {
         payMethod.shouldHave(Condition.text("Кредит по данным карты"));
     }
 
-    public void fillFields(CardInfo info ) {
+    public void fillFields(CardInfo info) {
         numberField.setValue(info.getNumber());
         monthField.setValue(info.getMonth());
         yearField.setValue(info.getYear());
@@ -79,6 +79,8 @@ public class PaymentPage {
     }
 
     public void checkNotificationOk() {
+        spinner.shouldHave(Condition.text("Отправляем запрос в Банк..."))
+                .shouldBe(visible);
         notificationOk.shouldHave(Condition.text("Успешно"), Duration.ofSeconds(durationNotificationS))
                 .shouldHave(Condition.text("Операция одобрена Банком."), Duration.ofSeconds(durationNotificationS))
                 .shouldBe(visible, Duration.ofSeconds(durationNotificationS));
@@ -87,6 +89,8 @@ public class PaymentPage {
     }
 
     public void checkNotificationError() {
+        spinner.shouldHave(Condition.text("Отправляем запрос в Банк..."))
+                .shouldBe(visible);
         notificationError.shouldHave(Condition.text("Ошибка"), Duration.ofSeconds(durationNotificationS))
                 .shouldHave(Condition.text("Ошибка! Банк отказал в проведении операции."), Duration.ofSeconds(durationNotificationS))
                 .shouldBe(visible, Duration.ofSeconds(durationNotificationS));
@@ -94,10 +98,10 @@ public class PaymentPage {
         notificationError.shouldNotBe(visible);
     }
 
-    public void checkFieldError(Field field) {
+    public void checkFieldError(Field field, String message) {
 
-    SelenideElement element = null;
-        switch(field) {
+        SelenideElement element = null;
+        switch (field) {
             case NUMBER:
                 element = numberField;
                 break;
@@ -115,7 +119,11 @@ public class PaymentPage {
                 break;
         }
         assert element != null;
-        element.parent().sibling(0).shouldHave(Condition.text("Неверный формат"))
+        element.parent().sibling(0).shouldHave(Condition.text(message))
                 .shouldBe(visible);
+    }
+
+    public void checkFieldError(Field field) {
+        checkFieldError(field, "Неверный формат"); //Перегрузка метода с параметром текста сообщения ошибки
     }
 }
