@@ -26,5 +26,12 @@ sudo java -jar artifacts/aqa-shop.jar
 устанавливаем node
 sudo apt install npm
 
+установка JDK11
+sudo apt install openjdk-11-jdk
+
 запускаем сервис
 artifacts/gate-simulator npm start
+
+запускаем тесты
+./gradlew test -Dselenide.headless=true
+
