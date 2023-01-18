@@ -12,25 +12,15 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class PaymentPage {
-
     private SelenideElement paymentHead = $(byText("Путешествие дня"));
-
-    private SelenideElement cardButton = $(byText("Купить"));
-
-    private SelenideElement creditButton = $(byText("Купить в кредит"));
-
     private SelenideElement continueButton = $(byText("Продолжить"));
-
     private SelenideElement payMethod = $("#root > div > h3");
-
     private SelenideElement numberField = $("[placeholder='0000 0000 0000 0000']");
     private SelenideElement numberFieldError = numberField.parent().sibling(0);
     private SelenideElement monthField = $("[placeholder='08']");
     private SelenideElement monthFieldError = monthField.parent().sibling(0);
-
     private SelenideElement yearField = $("[placeholder='22']");
     private SelenideElement yearFieldError = yearField.parent().sibling(0);
-
     private SelenideElement cvvField = $("[placeholder='999']");
     private SelenideElement cvvFieldError = cvvField.parent().sibling(0);
 
@@ -59,15 +49,6 @@ public class PaymentPage {
         paymentHead.shouldBe(visible);
     }
 
-    public void chooseCardPayment() {
-        cardButton.click();
-        payMethod.shouldHave(Condition.text("Оплата по карте"));
-    }
-
-    public void chooseCreditPayment() {
-        creditButton.click();
-        payMethod.shouldHave(Condition.text("Кредит по данным карты"));
-    }
 
     public void fillFields(CardInfo info) {
         numberField.setValue(info.getNumber());
@@ -78,9 +59,12 @@ public class PaymentPage {
         continueButton.click();
     }
 
-    public void checkNotificationOk() {
+    public void checkValidationOk() {
         spinner.shouldHave(Condition.text("Отправляем запрос в Банк..."))
                 .shouldBe(visible);
+    }
+
+    public void checkNotificationOk() {
         notificationOk.shouldHave(Condition.text("Успешно"), Duration.ofSeconds(durationNotificationS))
                 .shouldHave(Condition.text("Операция одобрена Банком."), Duration.ofSeconds(durationNotificationS))
                 .shouldBe(visible, Duration.ofSeconds(durationNotificationS));
@@ -89,8 +73,6 @@ public class PaymentPage {
     }
 
     public void checkNotificationError() {
-        spinner.shouldHave(Condition.text("Отправляем запрос в Банк..."))
-                .shouldBe(visible);
         notificationError.shouldHave(Condition.text("Ошибка"), Duration.ofSeconds(durationNotificationS))
                 .shouldHave(Condition.text("Ошибка! Банк отказал в проведении операции."), Duration.ofSeconds(durationNotificationS))
                 .shouldBe(visible, Duration.ofSeconds(durationNotificationS));

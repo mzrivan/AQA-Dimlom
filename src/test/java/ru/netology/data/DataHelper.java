@@ -21,6 +21,12 @@ public class DataHelper {
         return getValidCard(1 + (int) ( Math.random() * 12 * 5 ));
     }
 
+    public CardInfo getValidCardNameLength(int length){
+        var faker = new Faker();
+        var card = getValidCard();
+        card.setName(faker.regexify("[A-Z’-]{"+length+"}"));
+        return card;
+    }
     public CardInfo getAcceptedCard() {
         var card = getValidCard();
         card.setNumber("4444444444444441");
