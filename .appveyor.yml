@@ -1,0 +1,22 @@
+image: Ubuntu
+
+stack: jdk 11
+
+branches:
+  only:
+    - master
+
+build: off
+
+install:
+  - chmod +x gradlew
+  - sudo mysqladmin -u root -p create app
+  - mysql -u root -e 'CREATE USER 'app'@'localhost' IDENTIFIED BY 'pass';' app && echo done
+  - mysql -u root -e 'GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,ALTER,INDEX ON app.* TO 'app'@'localhost';' app && echo done
+  - sleep 20
+  - ./artifacts/gate-simulator npm start &
+  - sleep 20
+  - java -jar ./artifacts/aqa-shop.jar &
+
+build_script:
+  - ./gradlew test -Dselenide.headless=true -Durlbd=jdbc:mysql://localhost:3306/app --info
