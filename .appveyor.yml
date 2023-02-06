@@ -11,9 +11,11 @@ build: off
 install:
   - chmod +x gradlew
   - sudo curl -L "https://github.com/docker/compose/releases/download/2.15.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-  - sleep 25
+  - sleep 10
   - sudo chmod +x /usr/local/bin/docker-compose
-  - sudo docker-compose up
+  - sudo docker-compose build
+  - sleep 10
+  - sudo docker-compose up -d
   - sleep 25
   - java -jar ./artifacts/aqa-shop.jar &
 
