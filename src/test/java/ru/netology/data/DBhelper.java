@@ -10,8 +10,8 @@ import java.sql.SQLException;
 public class DBhelper {
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/app", "app", "pass");
-                    //"jdbc:postgresql://localhost:5432/app", "app", "pass");
+                //"jdbc:mysql://localhost:3306/app", "app", "pass");
+                "jdbc:postgresql://localhost:5432/app", "app", "pass");
     }
 
     public static void cleanDB() {
