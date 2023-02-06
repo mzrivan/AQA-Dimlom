@@ -13,8 +13,8 @@ install:
   - docker-compose version
   - docker-compose build
   - sleep 5
-  - docker-compose up
-  - sleep 15
+  - docker-compose up &
+  - sleep 60
   - java -jar ./artifacts/aqa-shop.jar &
   - sleep 10
 build_script:
