@@ -8,6 +8,8 @@ import ru.netology.page.MainPage;
 import ru.netology.page.PaymentPage;
 
 import static com.codeborne.selenide.Selenide.open;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static ru.netology.data.DBhelper.*;
 
 public class PaymentCreditTest {
         @BeforeEach
@@ -29,21 +31,27 @@ public class PaymentCreditTest {
         @Test
         @DisplayName("Accepted Credit Payment")
         void shouldAcceptCardPayment() {
+            cleanDB();
             MainPage mainPage = new MainPage();
             DataHelper dataHelper = new DataHelper();
             var paymentPage = mainPage.chooseCreditPayment();
             paymentPage.fillFields(dataHelper.getAcceptedCard());
             paymentPage.checkNotificationOk();
+            String dataSQLPayment = getCreditStatus();
+            assertEquals("APPROVED", dataSQLPayment);
         }
 
         @Test
         @DisplayName("Denied Credit Payment")
         void shouldDeniedCardPayment() {
+            cleanDB();
             MainPage mainPage = new MainPage();
             DataHelper dataHelper = new DataHelper();
             var paymentPage = mainPage.chooseCreditPayment();
             paymentPage.fillFields(dataHelper.getDeniedCard());
             paymentPage.checkNotificationError();
+            String dataSQLPayment = getCreditStatus();
+            assertEquals("DECLINED", dataSQLPayment);
         }
         @Test
         @DisplayName("Validation Valid Credit Payment")
