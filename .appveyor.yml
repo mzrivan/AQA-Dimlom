@@ -11,15 +11,11 @@ build: off
 install:
   - chmod +x gradlew
   - docker-compose version
-  - sudo curl -L "https://github.com/docker/compose/releases/download/v2.15.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-  - sleep 10
-  - docker-compose version
-  - sudo chmod +x /usr/local/bin/docker-compose
-  - docker-compose build -d
-  - sleep 10
-  - docker-compose up -d
-  - sleep 25
+  - docker-compose build
+  - sleep 5
+  - docker-compose up
+  - sleep 15
   - java -jar ./artifacts/aqa-shop.jar &
-
+  - sleep 10
 build_script:
   - ./gradlew test -Dselenide.headless=true --info
