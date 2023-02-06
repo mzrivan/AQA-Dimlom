@@ -10,10 +10,10 @@ build: off
 
 install:
   - chmod +x gradlew
-  - docker compose version
+  - docker-compose version
   - sudo curl -L "https://github.com/docker/compose/releases/download/v2.15.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
   - sleep 10
-  - docker compose version
+  - docker-compose version
   - sudo chmod +x /usr/local/bin/docker-compose
   - docker-compose build -d
   - sleep 10
