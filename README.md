@@ -47,7 +47,7 @@
 
 Задача разбита на 4 этапа:
 
-1. [Планирование автоматизации тестирования.](https://github.com/mzrivan/AQA-Diplom/blob/main/TestPlan.md)
+1. [Планирование автоматизации тестирования.](https://github.com/mzrivan/AQA-Diplom/blob/main/reports/TestPlan.md)
 2. Непосредственно сама автоматизация.
 3. [Подготовка отчётных документов по итогам автоматизированного тестирования.](https://github.com/mzrivan/AQA-Diplom/blob/main/reports/Report.md)
 4. [Подготовка отчётных документов по итогам автоматизации.](https://github.com/mzrivan/AQA-Diplom/blob/main/reports/Summary.md)

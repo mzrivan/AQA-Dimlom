@@ -1,5 +1,6 @@
 package ru.netology.data;
 
+import lombok.SneakyThrows;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 
@@ -8,54 +9,52 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBhelper {
-    public static Connection getConnection() throws SQLException {
+    private static String url = System.getProperty("url");
+    private static String username = System.getProperty("username");
+    private static String password = System.getProperty("password");
+
+    private static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(
-                //"jdbc:mysql://localhost:3306/app", "app", "pass");
-                "jdbc:postgresql://localhost:5432/app", "app", "pass");
+                url, username, password);
     }
 
+    @SneakyThrows
     public static void cleanDB() {
-        var delTableCredit = "DELETE FROM credit_request_entity;";
-        var delTableOrder = "DELETE FROM order_entity;";
-        var delTablePayment = "DELETE FROM payment_entity;";
-        var runner = new QueryRunner();
-        try (Connection conn = getConnection()) {
-            runner.update(conn, delTableCredit);
-            runner.update(conn, delTableOrder);
-            runner.update(conn, delTablePayment);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
+        String delTableCredit = "DELETE FROM credit_request_entity;";
+        String delTableOrder = "DELETE FROM order_entity;";
+        String delTablePayment = "DELETE FROM payment_entity;";
+        QueryRunner runner = new QueryRunner();
+        Connection conn = getConnection();
+        runner.update(conn, delTableCredit);
+        runner.update(conn, delTableOrder);
+        runner.update(conn, delTablePayment);
     }
 
+    @SneakyThrows
     public static String getStatus(String table) {
-        var sql = "SELECT status FROM "+table;
-        var runner = new QueryRunner();
+        String sql = "SELECT status FROM " + table;
+        QueryRunner runner = new QueryRunner();
         String status = null;
-        try (Connection conn = getConnection()) {
-            status = runner.query(conn, sql, new ScalarHandler<>());
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
+        Connection conn = getConnection();
+        status = runner.query(conn, sql, new ScalarHandler<>());
         return status;
     }
 
     public static String getPaymentStatus() {
         return getStatus("payment_entity");
     }
+
     public static String getCreditStatus() {
         return getStatus("credit_request_entity");
     }
+
+    @SneakyThrows
     public static String getPaymentAmount() {
-        var sql = "SELECT amount FROM payment_entity";
-        var runner = new QueryRunner();
+        String sql = "SELECT amount FROM payment_entity";
+        QueryRunner runner = new QueryRunner();
         String amount = null;
-        try (Connection conn = getConnection()) {
-            amount = Integer.toString(runner.query(conn, sql, new ScalarHandler<>()));
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
+        Connection conn = getConnection();
+        amount = Integer.toString(runner.query(conn, sql, new ScalarHandler<>()));
         return amount;
     }
-
 }
