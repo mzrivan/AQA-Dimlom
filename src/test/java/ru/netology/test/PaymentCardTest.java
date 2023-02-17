@@ -68,7 +68,7 @@ public class PaymentCardTest {
     }
 
     @Test
-    @DisplayName("Invalid Card Number CARD PAYMENT with char")
+    @DisplayName("Invalid Card Number Card Payment with char")
     void shouldGetErrorNumberCardPaymentWithChar() {
         MainPage mainPage = new MainPage();
         DataHelper dataHelper = new DataHelper();
@@ -80,7 +80,7 @@ public class PaymentCardTest {
     }
 
     @Test
-    @DisplayName("Invalid Card Number 13 digits CARD PAYMENT")
+    @DisplayName("Invalid Card Number 13 digits Card Payment")
     void shouldGetErrorNumber13DigitsCardPayment() {
         MainPage mainPage = new MainPage();
         DataHelper dataHelper = new DataHelper();
@@ -92,7 +92,7 @@ public class PaymentCardTest {
     }
 
     @Test
-    @DisplayName("Invalid Card Number 13 digits CARD PAYMENT")
+    @DisplayName("Invalid Card Number 13 digits Card Payment")
     void shouldGetErrorNumber13DigitCardPayment() {
         MainPage mainPage = new MainPage();
         DataHelper dataHelper = new DataHelper();
@@ -104,7 +104,7 @@ public class PaymentCardTest {
     }
 
     @Test
-    @DisplayName("Empty Card Number CARD PAYMENT")
+    @DisplayName("Empty Card Number Card Payment")
     void shouldGetErrorEmptyNumberCardPayment() {
         MainPage mainPage = new MainPage();
         DataHelper dataHelper = new DataHelper();
@@ -116,7 +116,7 @@ public class PaymentCardTest {
     }
 
     @Test
-    @DisplayName("Invalid Card month 13 CARD PAYMENT")
+    @DisplayName("Invalid Card month 13 Card Payment")
     void shouldGetErrorMonth13CardPayment() {
         MainPage mainPage = new MainPage();
         DataHelper dataHelper = new DataHelper();
@@ -128,7 +128,7 @@ public class PaymentCardTest {
     }
 
     @Test
-    @DisplayName("Invalid Card month 00 CARD PAYMENT")
+    @DisplayName("Invalid Card month 00 Card Payment")
     void shouldGetErrorMonth00CardPayment() {
         MainPage mainPage = new MainPage();
         DataHelper dataHelper = new DataHelper();
@@ -140,7 +140,7 @@ public class PaymentCardTest {
     }
 
     @Test
-    @DisplayName("Empty Card Month CARD PAYMENT")
+    @DisplayName("Empty Card Month Card Payment")
     void shouldGetErrorEmptyMonthCardPayment() {
         MainPage mainPage = new MainPage();
         DataHelper dataHelper = new DataHelper();
@@ -152,7 +152,7 @@ public class PaymentCardTest {
     }
 
     @Test
-    @DisplayName("Invalid card last year CARD PAYMENT")
+    @DisplayName("Invalid card last year Card Payment")
     void shouldGetErrorLastYearCardPayment() {
         MainPage mainPage = new MainPage();
         DataHelper dataHelper = new DataHelper();
@@ -163,7 +163,7 @@ public class PaymentCardTest {
     }
 
     @Test
-    @DisplayName("Invalid card more then 5 year CARD PAYMENT")
+    @DisplayName("Invalid card more then 5 year Card Payment")
     void shouldGetErrorMore5YearCardPayment() {
         MainPage mainPage = new MainPage();
         DataHelper dataHelper = new DataHelper();
@@ -174,7 +174,7 @@ public class PaymentCardTest {
     }
 
     @Test
-    @DisplayName("Empty Card Year CARD PAYMENT")
+    @DisplayName("Empty Card Year Card Payment")
     void shouldGetErrorEmptyYearCardPayment() {
         MainPage mainPage = new MainPage();
         DataHelper dataHelper = new DataHelper();
@@ -186,7 +186,7 @@ public class PaymentCardTest {
     }
 
     @Test
-    @DisplayName("Valid Card Name 1 symbol CARD PAYMENT")
+    @DisplayName("Valid Card Name 1 symbol Card Payment")
     void shouldGetOkName1symbolCardPayment() {
         MainPage mainPage = new MainPage();
         DataHelper dataHelper = new DataHelper();
@@ -197,7 +197,7 @@ public class PaymentCardTest {
     }
 
     @Test
-    @DisplayName("Valid Card Name 26 symbols CARD PAYMENT")
+    @DisplayName("Valid Card Name 26 symbols Card Payment")
     void shouldGetOkName26symbolsCardPayment() {
         MainPage mainPage = new MainPage();
         DataHelper dataHelper = new DataHelper();
@@ -208,7 +208,7 @@ public class PaymentCardTest {
     }
 
     @Test
-    @DisplayName("Invalid name with digit CARD PAYMENT")
+    @DisplayName("Invalid name with digit Card Payment")
     void shouldGetErrorNameWithDigitCardPayment() {
         MainPage mainPage = new MainPage();
         DataHelper dataHelper = new DataHelper();
@@ -220,7 +220,7 @@ public class PaymentCardTest {
     }
 
     @Test
-    @DisplayName("Invalid name with incorrect symbol CARD PAYMENT")
+    @DisplayName("Invalid name with incorrect symbol Card Payment")
     void shouldGetErrorNameWithSymbolCardPayment() {
         MainPage mainPage = new MainPage();
         DataHelper dataHelper = new DataHelper();
@@ -232,7 +232,7 @@ public class PaymentCardTest {
     }
 
     @Test
-    @DisplayName("Invalid name with other lang CARD PAYMENT")
+    @DisplayName("Invalid name with other lang Card Payment")
     void shouldGetErrorNameWithOtherLangCardPayment() {
         MainPage mainPage = new MainPage();
         DataHelper dataHelper = new DataHelper();
@@ -244,7 +244,7 @@ public class PaymentCardTest {
     }
 
     @Test
-    @DisplayName("Empty Card Name CARD PAYMENT")
+    @DisplayName("Empty Card Name Card Payment")
     void shouldGetErrorEmptyNameCardPayment() {
         MainPage mainPage = new MainPage();
         DataHelper dataHelper = new DataHelper();
@@ -257,7 +257,7 @@ public class PaymentCardTest {
 
 
     @Test
-    @DisplayName("Invalid cvv CARD PAYMENT")
+    @DisplayName("Invalid cvv Card Payment")
     void shouldGetErrorCVVCardPayment() {
         MainPage mainPage = new MainPage();
         DataHelper dataHelper = new DataHelper();
@@ -269,7 +269,7 @@ public class PaymentCardTest {
     }
 
     @Test
-    @DisplayName("Empty Card CVV CARD PAYMENT")
+    @DisplayName("Empty Card CVV Card Payment")
     void shouldGetErrorEmptyCvvCardPayment() {
         MainPage mainPage = new MainPage();
         DataHelper dataHelper = new DataHelper();

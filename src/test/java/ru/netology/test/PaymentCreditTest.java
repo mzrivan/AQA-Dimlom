@@ -31,7 +31,7 @@ public class PaymentCreditTest {
 
     @Test
     @DisplayName("Accepted Credit Payment")
-    void shouldAcceptCardPayment() {
+    void shouldAcceptCreditPayment() {
         cleanDB();
         MainPage mainPage = new MainPage();
         DataHelper dataHelper = new DataHelper();
@@ -44,7 +44,7 @@ public class PaymentCreditTest {
 
     @Test
     @DisplayName("Denied Credit Payment")
-    void shouldDeniedCardPayment() {
+    void shouldDeniedCreditPayment() {
         cleanDB();
         MainPage mainPage = new MainPage();
         DataHelper dataHelper = new DataHelper();
@@ -57,7 +57,7 @@ public class PaymentCreditTest {
 
     @Test
     @DisplayName("Validation Valid Credit Payment")
-    void shouldValidCardPayment() {
+    void shouldValidCreditPayment() {
         MainPage mainPage = new MainPage();
         DataHelper dataHelper = new DataHelper();
         PaymentPage paymentPage = mainPage.chooseCreditPayment();
@@ -67,7 +67,7 @@ public class PaymentCreditTest {
 
     @Test
     @DisplayName("Invalid Card Number Credit PAYMENT with char")
-    void shouldGetErrorNumberCardPaymentWithChar() {
+    void shouldGetErrorNumberCreditPaymentWithChar() {
         MainPage mainPage = new MainPage();
         DataHelper dataHelper = new DataHelper();
         PaymentPage paymentPage = mainPage.chooseCreditPayment();
@@ -79,7 +79,7 @@ public class PaymentCreditTest {
 
     @Test
     @DisplayName("Invalid Card Number 13 digits Credit PAYMENT")
-    void shouldGetErrorNumber13DigitsCardPayment() {
+    void shouldGetErrorNumber13DigitsCreditPayment() {
         MainPage mainPage = new MainPage();
         DataHelper dataHelper = new DataHelper();
         PaymentPage paymentPage = mainPage.chooseCreditPayment();
@@ -91,7 +91,7 @@ public class PaymentCreditTest {
 
     @Test
     @DisplayName("Invalid Card Number 13 digits Credit PAYMENT")
-    void shouldGetErrorNumber13DigitCardPayment() {
+    void shouldGetErrorNumber13DigitCreditPayment() {
         MainPage mainPage = new MainPage();
         DataHelper dataHelper = new DataHelper();
         PaymentPage paymentPage = mainPage.chooseCreditPayment();
@@ -103,7 +103,7 @@ public class PaymentCreditTest {
 
     @Test
     @DisplayName("Empty Card Number Credit PAYMENT")
-    void shouldGetErrorEmptyNumberCardPayment() {
+    void shouldGetErrorEmptyNumberCreditPayment() {
         MainPage mainPage = new MainPage();
         DataHelper dataHelper = new DataHelper();
         PaymentPage paymentPage = mainPage.chooseCreditPayment();
@@ -115,7 +115,7 @@ public class PaymentCreditTest {
 
     @Test
     @DisplayName("Invalid Card month 13 Credit PAYMENT")
-    void shouldGetErrorMonth13CardPayment() {
+    void shouldGetErrorMonth13CreditPayment() {
         MainPage mainPage = new MainPage();
         DataHelper dataHelper = new DataHelper();
         PaymentPage paymentPage = mainPage.chooseCreditPayment();
@@ -127,7 +127,7 @@ public class PaymentCreditTest {
 
     @Test
     @DisplayName("Invalid Card month 00 Credit PAYMENT")
-    void shouldGetErrorMonth00CardPayment() {
+    void shouldGetErrorMonth00CreditPayment() {
         MainPage mainPage = new MainPage();
         DataHelper dataHelper = new DataHelper();
         PaymentPage paymentPage = mainPage.chooseCreditPayment();
@@ -139,7 +139,7 @@ public class PaymentCreditTest {
 
     @Test
     @DisplayName("Empty Card Month Credit PAYMENT")
-    void shouldGetErrorEmptyMonthCardPayment() {
+    void shouldGetErrorEmptyMonthCreditPayment() {
         MainPage mainPage = new MainPage();
         DataHelper dataHelper = new DataHelper();
         PaymentPage paymentPage = mainPage.chooseCreditPayment();
@@ -151,7 +151,7 @@ public class PaymentCreditTest {
 
     @Test
     @DisplayName("Invalid card last year Credit PAYMENT")
-    void shouldGetErrorLastYearCardPayment() {
+    void shouldGetErrorLastYearCreditPayment() {
         MainPage mainPage = new MainPage();
         DataHelper dataHelper = new DataHelper();
         PaymentPage paymentPage = mainPage.chooseCreditPayment();
@@ -162,7 +162,7 @@ public class PaymentCreditTest {
 
     @Test
     @DisplayName("Invalid card more then 5 year Credit PAYMENT")
-    void shouldGetErrorMore5YearCardPayment() {
+    void shouldGetErrorMore5YearCreditPayment() {
         MainPage mainPage = new MainPage();
         DataHelper dataHelper = new DataHelper();
         PaymentPage paymentPage = mainPage.chooseCreditPayment();
@@ -173,7 +173,7 @@ public class PaymentCreditTest {
 
     @Test
     @DisplayName("Empty Card Year Credit PAYMENT")
-    void shouldGetErrorEmptyYearCardPayment() {
+    void shouldGetErrorEmptyYearCreditPayment() {
         MainPage mainPage = new MainPage();
         DataHelper dataHelper = new DataHelper();
         PaymentPage paymentPage = mainPage.chooseCreditPayment();
@@ -185,7 +185,7 @@ public class PaymentCreditTest {
 
     @Test
     @DisplayName("Valid Card Name 1 symbol Credit PAYMENT")
-    void shouldGetOkName1symbolCardPayment() {
+    void shouldGetOkName1symbolCreditPayment() {
         MainPage mainPage = new MainPage();
         DataHelper dataHelper = new DataHelper();
         PaymentPage paymentPage = mainPage.chooseCreditPayment();
@@ -196,7 +196,7 @@ public class PaymentCreditTest {
 
     @Test
     @DisplayName("Valid Card Name 26 symbols Credit PAYMENT")
-    void shouldGetOkName26symbolsCardPayment() {
+    void shouldGetOkName26symbolsCreditPayment() {
         MainPage mainPage = new MainPage();
         DataHelper dataHelper = new DataHelper();
         PaymentPage paymentPage = mainPage.chooseCreditPayment();
@@ -207,7 +207,7 @@ public class PaymentCreditTest {
 
     @Test
     @DisplayName("Invalid name with digit Credit PAYMENT")
-    void shouldGetErrorNameWithDigitCardPayment() {
+    void shouldGetErrorNameWithDigitCreditPayment() {
         MainPage mainPage = new MainPage();
         DataHelper dataHelper = new DataHelper();
         PaymentPage paymentPage = mainPage.chooseCreditPayment();
@@ -219,7 +219,7 @@ public class PaymentCreditTest {
 
     @Test
     @DisplayName("Invalid name with incorrect symbol Credit PAYMENT")
-    void shouldGetErrorNameWithSymbolCardPayment() {
+    void shouldGetErrorNameWithSymbolCreditPayment() {
         MainPage mainPage = new MainPage();
         DataHelper dataHelper = new DataHelper();
         PaymentPage paymentPage = mainPage.chooseCreditPayment();
@@ -231,7 +231,7 @@ public class PaymentCreditTest {
 
     @Test
     @DisplayName("Invalid name with other lang Credit PAYMENT")
-    void shouldGetErrorNameWithOtherLangCardPayment() {
+    void shouldGetErrorNameWithOtherLangCreditPayment() {
         MainPage mainPage = new MainPage();
         DataHelper dataHelper = new DataHelper();
         PaymentPage paymentPage = mainPage.chooseCreditPayment();
@@ -243,7 +243,7 @@ public class PaymentCreditTest {
 
     @Test
     @DisplayName("Empty Card Name Credit PAYMENT")
-    void shouldGetErrorEmptyNameCardPayment() {
+    void shouldGetErrorEmptyNameCreditPayment() {
         MainPage mainPage = new MainPage();
         DataHelper dataHelper = new DataHelper();
         PaymentPage paymentPage = mainPage.chooseCreditPayment();
@@ -256,7 +256,7 @@ public class PaymentCreditTest {
 
     @Test
     @DisplayName("Invalid cvv Credit PAYMENT")
-    void shouldGetErrorCVVCardPayment() {
+    void shouldGetErrorCVVCreditPayment() {
         MainPage mainPage = new MainPage();
         DataHelper dataHelper = new DataHelper();
         PaymentPage paymentPage = mainPage.chooseCreditPayment();
@@ -268,7 +268,7 @@ public class PaymentCreditTest {
 
     @Test
     @DisplayName("Empty Card CVV Credit PAYMENT")
-    void shouldGetErrorEmptyCvvCardPayment() {
+    void shouldGetErrorEmptyCvvCreditPayment() {
         MainPage mainPage = new MainPage();
         DataHelper dataHelper = new DataHelper();
         PaymentPage paymentPage = mainPage.chooseCreditPayment();

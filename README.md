@@ -1,4 +1,4 @@
-# Дипломный проект по профессии «Тестировщик»
+# Дипломный проект по профессии «Тестировщик» [![Build status](https://ci.appveyor.com/api/projects/status/jut8c448ab9mi8ra?svg=true)](https://ci.appveyor.com/project/mzrivan/aqa-diplom)
 
 Бизнес-часть
 Приложение — это веб-сервис, который предлагает купить тур по определённой цене двумя способами:
