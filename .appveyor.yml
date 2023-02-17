@@ -19,5 +19,9 @@ install:
 build_script:
   - sleep 20
   - ./gradlew test -Dselenide.headless=true -Durl=jdbc:postgresql://localhost:5432/app --info
+after_build:
+  - 7z a results.zip build\reports\tests\test
 artifacts:
-  - path: build\reports\tests\test
+  - path: results.zip
+on_failure:
+  - appveyor PushArtifact results.zip
