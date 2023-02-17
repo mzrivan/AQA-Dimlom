@@ -73,6 +73,7 @@
 * `java -Dspring.datasource.url=jdbc:mysql://localhost:3306/app -jar ./artifacts/aqa-shop.jar`
 
 в новом окне терминала в папке проекта выполнить команду:
+
 для запуска тестов с postresql
 
 - `./gradlew test -Dselenide.headless=true -Durl=jdbc:postgresql://localhost:5432/app --info`
@@ -84,3 +85,5 @@
 после выполнения тестов сформировать и открыть отчёт
 
 * `./gradlew allureServe`  
+
+либо [скачать архив с отчётом Gradle](https://ci.appveyor.com/project/mzrivan/aqa-diplom/build/artifacts) `results.zip` после сборки в CI Appveyor
