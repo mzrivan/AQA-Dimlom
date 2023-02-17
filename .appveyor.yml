@@ -24,4 +24,5 @@ after_build:
 artifacts:
   - path: results.zip
 on_failure:
+  - 7z a results.zip build\reports\tests\test
   - appveyor PushArtifact results.zip
