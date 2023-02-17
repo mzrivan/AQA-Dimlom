@@ -64,16 +64,22 @@
 * `docker-compose build`
 * `docker-compose up`
 
-для запуска с postresql
+для запуска сервиса с postresql
 
 * `java -Dspring.datasource.url=jdbc:postgresql://localhost:5432/app -jar ./artifacts/aqa-shop.jar`
 
-для запуска с mysql
+для запуска сервиса с mysql
 
 * `java -Dspring.datasource.url=jdbc:mysql://localhost:3306/app -jar ./artifacts/aqa-shop.jar`
 
-в новом окне терминала в папке проекта выполнить (предварительно выбрав необходимый url базы данных в файле DBhelper)
-* `./gradlew clean test --info`
+в новом окне терминала в папке проекта выполнить команду:
+для запуска тестов с postresql
+
+- `./gradlew test -Dselenide.headless=true -Durl=jdbc:postgresql://localhost:5432/app --info`
+
+для запуска тестов с mysql
+
+- `./gradlew test -Dselenide.headless=true -Durl=jdbc:mysql://localhost:3306/app --info`
 
 после выполнения тестов сформировать и открыть отчёт
 
